@@ -2,7 +2,7 @@
 let primeFInder = n => {
   if (n === 1 || n === 2) return n === 1 ? "no" : "yes";
   for (let i = 2; i <= Math.ceil(Math.sqrt(n)); i++) {
-    if (n % i === 0) {
+    if (!(n % i)) {
       return "no";
     }
   }
@@ -32,7 +32,7 @@ let quotRemind = i => {
     product *= i % 10;
     i = Math.floor(i / 10);
   }
-  return product % sum === 0? `Quotient is ${product / sum}` : `Remainder is ${product % sum}`;
+  return !(product % sum)? `Quotient is ${product / sum}` : `Remainder is ${product % sum}`;
 };
 
 // 9. Generate array of from a to b equal n elements
