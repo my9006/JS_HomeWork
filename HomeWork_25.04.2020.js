@@ -95,16 +95,16 @@ let permutationsOf = (
   return res;
 };
 // Implement map in constructor / I gave array to check work it or not
-let MyMap = function(ar, init = []) {
-  this.ar = ar;
-  this.init = init;
+let MyMap = function(res = {}) {
+  this.res = res;
   this.mapi = function(fn) {
-    for (let i of this.ar) {
-      init.push(fn(i));
-    }
-    return init;
+    for (let i in this) {
+      if(i!=="res"&&i!=="mapi"){
+      res[i] = fn(this[i]);}
+      if(i==="mapi"){
+        res[i]=this[i];
+      }
+  }
+    return res;
   };
 };
-let a = [2, 3, 4, 5, 6];
-let o = new MyMap(a);
-console.log(o.mapi(x => x%2));
