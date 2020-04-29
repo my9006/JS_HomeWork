@@ -94,7 +94,7 @@ let permutationsOf = (
   }
   return res;
 };
-// Implement map in constructor / I gave array to check work it or not
+// Implement map in constructor -> returns new object
 let MyMap = function(res = {}) {
   this.res = res;
   this.mapi = function(fn) {
