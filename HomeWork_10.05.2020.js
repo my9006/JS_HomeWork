@@ -13,10 +13,13 @@ let binSearch = (ar, s, start = 0, end = ar.length) => {
 let binSearch = (ar, s, start = 0, end = ar.length) => {
   for (let a = 0; a < Math.log2(ar.length); a++) {
     let i = Math.floor((start + end) / 2);
-    if (s > ar[i]) start = i;
-    else if (s < ar[i]) end = i;
+//     start+1 and end-1 is done for exclude the indexes, that are already checked
+    if (s > ar[i]) start = i+1;
+    else if (s < ar[i]) end = i-1;
     else return i;
   }
+//   exit code should be -1 on fail
+  return -1;
 };
 
 let ch = [8, 10, 12, 14, 16, 18, 20];
