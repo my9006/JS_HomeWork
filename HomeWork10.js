@@ -244,12 +244,13 @@ class Student extends Person{
         this.examData[exam] = grade;
         if(this.examsArePassed(this.examData)){
             this.year++;
+            this.program={};
         }
         
       }
-    examsArePassed(obj){
-        for(let i in obj){
-          if(obj[i]<50 || obj[i]===undefined){
+    examsArePassed(programs){
+        for(let i in programs){
+          if(programs[i]<50 || programs[i]===undefined){
             return false;
           }
         }
