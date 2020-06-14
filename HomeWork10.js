@@ -58,7 +58,11 @@ class Book{
     return this._author;
   }
   set author(v){
+    if(v instanceof Author){
     this._author = v;
+    }else{
+        throw new Error("The author shoulr be instance of Author class")
+    }
   }
 
   get price(){
@@ -111,11 +115,13 @@ class Account{
   }
 
   credit =amount=>{
+    if(amount<0) throw new Error("Credited amount cannot be negative")
     this.balance+=amount;
     return this.balance;
   }
 
   debit = amount=>{
+    if(amount<0) throw new Error("Credited amount cannot be negative")
     if(this.balance -amount<0){
       console.log("Amount exceeded balance.");
       return;
@@ -126,6 +132,7 @@ class Account{
   }
 
   transferTo = (toAccount, amount)=>{
+      if(amount<0) throw new Error("Credited amount cannot be negative")
       this.debit(amount);
       toAccount.credit(amount);
   }
